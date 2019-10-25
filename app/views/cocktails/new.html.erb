@@ -1,2 +1,12 @@
 <h1>Cocktails#new</h1>
 <p>Find me in app/views/cocktails/new.html.erb</p>
+<div class="row justify-content-center">
+<div class="card" style="width: 18rem;">
+<h2>New cocktail</h2>
+ <%= simple_form_for @cocktail do |f| %>
+ <%= f.input :name, label: "How is it called?", error: 'Mandatory field' %>
+ <%= f.submit "Add Cocktail", class: "btn btn-primary" %>
+ <% end %>
+</div>
+</div>
+

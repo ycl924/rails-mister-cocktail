@@ -12,5 +12,23 @@
  *
  *= require_tree .
  *= require_self
+
  */
-@import "bootstrap/scss/bootstrap"
+
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.button_to{
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  height: 400px;
+}
+
+.card img{
+  height: 340px;
+}

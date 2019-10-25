@@ -8,6 +8,8 @@
 
 require 'open-uri'
 require 'json'
+
+
 puts 'Reading json'
 file = open('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list')
 json = file.read

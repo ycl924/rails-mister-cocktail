@@ -1,2 +1,86 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<div class="row justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <img src=<%= @cocktail.picture %> class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= @cocktail.name %>
+        </h5>
+        <h3>How to make it: </h3>
+        <% @doses.each do |dose| %>
+        <p class="card-text">
+          <%= dose.description %> of
+          <%= dose.ingredient.name %>
+          <%= link_to cocktail_dose_path(@cocktail, dose), class: "text-danger",  method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class='far fa-trash-alt'></i>
+            <% end %>
+        </p>
+        <% end %>
+        <%= button_to "Add a dose", new_cocktail_dose_path(@cocktail), method: :get, class: "btn-primary" %>
+      </div>
+    </div>
+    <div class="card-columns-wrapper" style="width: 800px; padding: 40px">
+      <h1>Choose a picture</h1>
+
+<div class="card-columns">
+  <div class="card">
+    <img src=<%= @image[0] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[0]} %>
+    </div>
+  </div>
+  <div class="card">
+     <img src=<%= @image[1] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[1]} %>
+    </div>
+  </div>
+  <div class="card">
+    <img src=<%= @image[2] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[2]} %>
+    </div>
+  </div>
+  <div class="card bg-primary text-white text-center p-3">
+    <blockquote class="blockquote mb-0">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
+      <footer class="blockquote-footer text-white">
+        <small>
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card text-center">
+    <img src=<%= @image[3] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[3]} %>
+    </div>
+  </div>
+  <div class="card">
+     <img src=<%= @image[5] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[5]} %>
+    </div>
+  </div>
+  <div class="card p-3 text-right">
+    <blockquote class="blockquote mb-0">
+      <p>Quote.</p>
+      <footer class="blockquote-footer">
+        <small class="text-muted">
+          Someone famous in <cite title="Source Title">Source Title</cite>
+        </small>
+      </footer>
+    </blockquote>
+  </div>
+  <div class="card">
+    <img src=<%= @image[4] %> class="card-img-top" alt="...">
+    <div class="card-body">
+      <%= button_to 'Set pic', set_pic_path(@cocktail), method: :get, class: "btn-warning", params: {image: @image[4]} %>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+</div>

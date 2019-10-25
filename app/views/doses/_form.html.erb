@@ -1,11 +1,9 @@
-<div class="row justify-content-center">
 
 <div class="card" style="width: 18rem;">
-<h2>Add an ingredient</h2>
+
  <%= simple_form_for [@cocktail, @dose] do |f| %>
  <%= f.association :ingredient %>
- <%= f.input :description, label: "How much of it?", error: 'Mandatory field' %>
+ <%= f.input :description, error: 'Mandatory field' %>
  <%= f.submit "Add Dose", class: "btn btn-primary" %>
  <% end %>
-</div>
 </div>

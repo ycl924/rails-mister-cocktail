@@ -11,10 +11,12 @@
 </head>
 
 <body>
+  <%= render 'shared/navbar' %>
+
   <%= yield %>
-  <!-- from app/assets/javascripts/application.js -->
+  <%= render 'shared/footer' %>
+
   <%= javascript_pack_tag "application" %>
-  <!-- from app/javascript/packs/application.js -->
 </body>
 
 </html>
