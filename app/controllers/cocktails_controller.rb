@@ -18,7 +18,11 @@ class CocktailsController < ApplicationController
   def index
     if params[:query].present?
       @query = params[:query]
-      @cocktails = Cocktail.where("name ILIKE '%#{@query}%'")
+      pre_cocktails = Cocktail.where("name ILIKE '%#{@query}%'")
+      ingredient_ids = Ingredient.where("name ILIKE '%#{@query}%'").pluck(:id)
+      doses = Dose.where(ingredient_id: ingredient_ids).pluck(:cocktail_id)
+      post_cocktails = Cocktail.where(id: doses)
+      @cocktails = pre_cocktails + post_cocktails
     else
       @cocktails = Cocktail.all
     end
@@ -32,6 +36,7 @@ class CocktailsController < ApplicationController
 
   def destroy
     @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   def fetch_pictures_pixabay
